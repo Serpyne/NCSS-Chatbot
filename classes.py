@@ -27,15 +27,6 @@ class WebServer(Flask):
         print(ascii_james_curran())
         super().run(host='0.0.0.0', debug=False)
 
-# class my_markdown(markdown.Markdown):
-#     def __init__(self, extensions, extension_configs=None):
-#         extension_configs = extension_configs or {}
-#         extension_configs['codehilite'] = {
-#             'use_pygments': True,
-#             'css_class': 'highlight',
-#         }
-#         super().__init__(extensions, extension_configs)
-
 class Agent:
     def __init__(self, name: str, room: str):
         self.room = room
@@ -61,15 +52,6 @@ class Agent:
         base_msg = loads(base_msg)
 
         response = base_msg["content"]
-
-        # Formatting from Markdown to HTML
-        # response = re.sub(r"\*\*(.+?)\*\*", r'<strong>\1</strong>', response)
-        # response = re.sub(r"\*(.+?)\*", r'<em>\1</em>', response)
-        # response = re.sub(r"\n", '<br>', response)
-        # response = re.sub('python', '', response)
-
         response = markdown.markdown(response, extensions=["fenced_code", CodeHiliteExtension()])
-        # response = re.sub(r'<p>(<|</)code>', r'<p>\1pre>', response)
-        # response = re.sub(r'(<|</)code></p>', r'\1pre></p>', response)
 
         return response

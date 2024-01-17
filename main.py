@@ -135,14 +135,15 @@ def event_loop():
 
 if __name__ == "__main__":
 
-    threads = [
-        Thread(target=main_loop),
-        Thread(target=event_loop)
-    ]
+    #threads = [
+    #    Thread(target=main_loop),
+    #    Thread(target=event_loop)
+    #]
 
-    try:
-        for thread in threads:
-            thread.start()
+    #try:
+    #    for thread in threads:
+    #        thread.start()
 
-    except KeyboardInterrupt:
-        pass
+    #except KeyboardInterrupt:
+    #    pass
+    main_loop()
