@@ -6,5 +6,4 @@ langchain_community
 langchain
 python-dotenv
 cohere
-threading
 markdown
